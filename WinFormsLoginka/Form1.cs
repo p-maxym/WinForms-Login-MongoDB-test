@@ -1,10 +1,13 @@
 namespace WinFormsLoginka
 {
-    public partial class Form1 : Form
+    public partial class LoginWindow : Form
     {
-        public Form1()
+        public LoginWindow()
         {
             InitializeComponent();
+
         }
+
+
     }
 }
