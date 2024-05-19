@@ -37,7 +37,7 @@
             PasswordBox = new TextBox();
             label3 = new Label();
             LogIn = new Button();
-            SignIn = new Button();
+            SignUp = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -77,6 +77,7 @@
             LoginBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             LoginBox.BackColor = Color.White;
             LoginBox.BorderStyle = BorderStyle.FixedSingle;
+            LoginBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             LoginBox.Location = new Point(407, 157);
             LoginBox.Multiline = true;
             LoginBox.Name = "LoginBox";
@@ -97,6 +98,7 @@
             // 
             PasswordBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PasswordBox.BorderStyle = BorderStyle.FixedSingle;
+            PasswordBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordBox.Location = new Point(407, 242);
             PasswordBox.Multiline = true;
             PasswordBox.Name = "PasswordBox";
@@ -123,16 +125,16 @@
             LogIn.Text = "Log In";
             LogIn.UseVisualStyleBackColor = true;
             // 
-            // SignIn
+            // SignUp
             // 
-            SignIn.BackColor = Color.Transparent;
-            SignIn.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            SignIn.Location = new Point(67, 350);
-            SignIn.Name = "SignIn";
-            SignIn.Size = new Size(120, 47);
-            SignIn.TabIndex = 8;
-            SignIn.Text = "Sign In";
-            SignIn.UseVisualStyleBackColor = false;
+            SignUp.BackColor = Color.Transparent;
+            SignUp.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            SignUp.Location = new Point(67, 350);
+            SignUp.Name = "SignUp";
+            SignUp.Size = new Size(120, 47);
+            SignUp.TabIndex = 8;
+            SignUp.Text = "Sign Up";
+            SignUp.UseVisualStyleBackColor = false;
             // 
             // LoginWindow
             // 
@@ -140,7 +142,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(800, 450);
-            Controls.Add(SignIn);
+            Controls.Add(SignUp);
             Controls.Add(LogIn);
             Controls.Add(label3);
             Controls.Add(PasswordBox);
@@ -167,6 +169,6 @@
         private TextBox PasswordBox;
         private Label label3;
         private Button LogIn;
-        private Button SignIn;
+        private Button SignUp;
     }
 }
