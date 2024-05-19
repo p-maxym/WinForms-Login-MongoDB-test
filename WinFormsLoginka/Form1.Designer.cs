@@ -83,6 +83,7 @@
             LoginBox.Name = "LoginBox";
             LoginBox.Size = new Size(239, 34);
             LoginBox.TabIndex = 3;
+            LoginBox.TextChanged += LoginBox_TextChanged;
             // 
             // label2
             // 

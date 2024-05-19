@@ -11,6 +11,9 @@ namespace WinFormsLoginka
         private readonly IMongoDatabase _database;
         private readonly IMongoCollection<BsonDocument> _collection;
 
+        private string? _username;
+        private string? _password;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace WinFormsLoginka
 
             ConnectToDataBase();
 
+            AddUserToDataBase("TryHardBob", "bobpassword");
         }
 
         protected void ConnectToDataBase()
@@ -38,8 +42,31 @@ namespace WinFormsLoginka
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex);
             }
+        }
+
+        public void AddUserToDataBase(string username, string password)
+        {
+            try
+            {
+                var document = new BsonDocument
+                {
+                    {"username", username },
+                    {"password", password}
+                };
+                _collection.InsertOne(document);
+                Debug.WriteLine("User successfully added.");
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
+
+        private void LoginBox_TextChanged(object sender, EventArgs e)
+        {
+            _username = LoginBox.Text;
         }
     }
 }
