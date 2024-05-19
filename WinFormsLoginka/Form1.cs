@@ -58,7 +58,7 @@ namespace WinFormsLoginka
                 _collection.InsertOne(document);
                 Debug.WriteLine("User successfully added.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
@@ -66,7 +66,33 @@ namespace WinFormsLoginka
 
         private void LoginBox_TextChanged(object sender, EventArgs e)
         {
-            _username = LoginBox.Text;
+
+        }
+
+        private void LogIn_Click(object sender, EventArgs e)
+        {
+            string username = LoginBox.Text.Trim();
+            System.String password = PasswordBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Username or password cannot be empty.");
+            }
+
+            var usernameFilter = Builders<BsonDocument>.Filter.Eq("username", username);
+            var passwordFilter = Builders<BsonDocument>.Filter.Eq("password", password);
+
+            var usernameFind = _collection.Find(usernameFilter).FirstOrDefault();
+            var passwordFind = _collection.Find(passwordFilter).FirstOrDefault();
+
+            if (usernameFind != null && passwordFind != null)
+            {
+                MessageBox.Show("Login successfull.\nWelcome ", username);
+            }
+            else
+            {
+                MessageBox.Show("Login or password is not correct.");
+            }
         }
     }
 }

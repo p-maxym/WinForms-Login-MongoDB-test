@@ -125,6 +125,7 @@
             LogIn.TabIndex = 7;
             LogIn.Text = "Log In";
             LogIn.UseVisualStyleBackColor = true;
+            LogIn.Click += LogIn_Click;
             // 
             // SignUp
             // 
