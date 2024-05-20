@@ -101,7 +101,7 @@ namespace WinFormsLoginka
 
         private void SignUp_Click(object sender, EventArgs e)
         {
-            Form2 signUpForm = new Form2();
+            SignUpForm signUpForm = new SignUpForm();
 
             signUpForm.Show();
 

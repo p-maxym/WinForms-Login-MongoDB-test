@@ -119,10 +119,10 @@
             // 
             // LogIn
             // 
-            LogIn.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LogIn.Location = new Point(603, 347);
+            LogIn.Font = new Font("Impact", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            LogIn.Location = new Point(591, 341);
             LogIn.Name = "LogIn";
-            LogIn.Size = new Size(120, 46);
+            LogIn.Size = new Size(129, 54);
             LogIn.TabIndex = 7;
             LogIn.Text = "Log In";
             LogIn.UseVisualStyleBackColor = true;
@@ -131,10 +131,10 @@
             // SignUp
             // 
             SignUp.BackColor = Color.Transparent;
-            SignUp.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            SignUp.Location = new Point(67, 350);
+            SignUp.Font = new Font("Impact", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            SignUp.Location = new Point(64, 339);
             SignUp.Name = "SignUp";
-            SignUp.Size = new Size(120, 47);
+            SignUp.Size = new Size(123, 58);
             SignUp.TabIndex = 8;
             SignUp.Text = "Sign Up";
             SignUp.UseVisualStyleBackColor = false;

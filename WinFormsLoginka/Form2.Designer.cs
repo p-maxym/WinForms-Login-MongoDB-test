@@ -1,6 +1,6 @@
 ﻿namespace WinFormsLoginka
 {
-    partial class Form2
+    partial class SignUpForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
@@ -76,6 +76,7 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.Location = new Point(384, 123);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
@@ -94,6 +95,7 @@
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.Location = new Point(384, 204);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
@@ -112,6 +114,7 @@
             // 
             // textBox3
             // 
+            textBox3.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             textBox3.Location = new Point(384, 287);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
@@ -130,10 +133,10 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(467, 360);
+            button1.Font = new Font("Impact", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(603, 355);
             button1.Name = "button1";
-            button1.Size = new Size(115, 45);
+            button1.Size = new Size(122, 55);
             button1.TabIndex = 12;
             button1.Text = "Create";
             button1.UseVisualStyleBackColor = true;
@@ -141,14 +144,15 @@
             // button2
             // 
             button2.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(63, 360);
+            button2.Location = new Point(55, 355);
             button2.Name = "button2";
-            button2.Size = new Size(145, 45);
+            button2.Size = new Size(149, 55);
             button2.TabIndex = 13;
-            button2.Text = "Back to LogIn";
+            button2.Text = "Back to Log In";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // Form2
+            // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -166,7 +170,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             ForeColor = Color.Black;
-            Name = "Form2";
+            Name = "SignUpForm";
             Text = "SignUpForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

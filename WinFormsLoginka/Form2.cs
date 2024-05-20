@@ -10,13 +10,20 @@ using System.Windows.Forms;
 
 namespace WinFormsLoginka
 {
-    public partial class Form2 : Form
+    public partial class SignUpForm : Form
     {
-        public Form2()
+        public SignUpForm()
         {
             InitializeComponent();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoginWindow logInForm = new LoginWindow();
+            logInForm.Show();
 
+            this.Hide();
+            logInForm.FormClosed += (s, args) => this.Close();
+        }
     }
 }
