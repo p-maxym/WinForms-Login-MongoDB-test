@@ -22,8 +22,7 @@ namespace WinFormsLoginka
             _collection = _database.GetCollection<BsonDocument>("WinFormLoginUsers");
 
             ConnectToDataBase();
-
-            AddUserToDataBase("TryHardBob", "bobpassword");
+            AddUserToDataBase("van", "dark");
         }
 
         protected void ConnectToDataBase()
@@ -52,7 +51,7 @@ namespace WinFormsLoginka
             {
                 var document = new BsonDocument
                 {
-                    {"username", username },
+                    {"username", username},
                     {"password", password}
                 };
                 _collection.InsertOne(document);
@@ -71,27 +70,36 @@ namespace WinFormsLoginka
 
         private void LogIn_Click(object sender, EventArgs e)
         {
-            string username = LoginBox.Text.Trim();
-            System.String password = PasswordBox.Text.Trim();
+            string username = LoginBox.Text;
+            string password = PasswordBox.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Username or password cannot be empty.");
+                return;
             }
 
             var usernameFilter = Builders<BsonDocument>.Filter.Eq("username", username);
-            var passwordFilter = Builders<BsonDocument>.Filter.Eq("password", password);
 
             var usernameFind = _collection.Find(usernameFilter).FirstOrDefault();
-            var passwordFind = _collection.Find(passwordFilter).FirstOrDefault();
+            string? passwordFind = usernameFind.GetValue("password").ToString();
 
-            if (usernameFind != null && passwordFind != null)
+            try
             {
-                MessageBox.Show("Login successfull.\nWelcome ", username);
+
+                if (passwordFind != null && passwordFind == password)
+                {
+                    MessageBox.Show($"Login successfull.\nWelcome {username}");
+                }
+                else
+                {
+                    MessageBox.Show("Login or password is not correct.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Login or password is not correct.");
+                Debug.WriteLine($"An error occurred: {ex.Message}.");
+                MessageBox.Show($"An error occurred: {ex.Message}.");
             }
         }
     }
