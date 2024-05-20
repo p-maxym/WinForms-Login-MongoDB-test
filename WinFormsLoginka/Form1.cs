@@ -11,9 +11,6 @@ namespace WinFormsLoginka
         private readonly IMongoDatabase _database;
         private readonly IMongoCollection<BsonDocument> _collection;
 
-        private string? _username;
-        private string? _password;
-
         public LoginWindow()
         {
             InitializeComponent();
