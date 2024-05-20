@@ -56,7 +56,7 @@
             pictureBox2.BackColor = SystemColors.ActiveCaptionText;
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Location = new Point(-2, 30);
+            pictureBox2.Location = new Point(-2, 37);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(258, 239);
             pictureBox2.TabIndex = 1;
@@ -103,6 +103,7 @@
             PasswordBox.Location = new Point(407, 242);
             PasswordBox.Multiline = true;
             PasswordBox.Name = "PasswordBox";
+            PasswordBox.PasswordChar = '●';
             PasswordBox.Size = new Size(239, 34);
             PasswordBox.TabIndex = 5;
             // 
@@ -137,6 +138,7 @@
             SignUp.TabIndex = 8;
             SignUp.Text = "Sign Up";
             SignUp.UseVisualStyleBackColor = false;
+            SignUp.Click += SignUp_Click;
             // 
             // LoginWindow
             // 

@@ -21,8 +21,7 @@ namespace WinFormsLoginka
             _database = _client.GetDatabase("DataB");
             _collection = _database.GetCollection<BsonDocument>("WinFormLoginUsers");
 
-            ConnectToDataBase();
-            AddUserToDataBase("van", "dark");
+
         }
 
         protected void ConnectToDataBase()
@@ -101,6 +100,16 @@ namespace WinFormsLoginka
                 Debug.WriteLine($"An error occurred: {ex.Message}.");
                 MessageBox.Show($"An error occurred: {ex.Message}.");
             }
+        }
+
+        private void SignUp_Click(object sender, EventArgs e)
+        {
+            Form2 signUpForm = new Form2();
+
+            signUpForm.Show();
+
+            this.Hide();
+            signUpForm.FormClosed += (s, args) => this.Close();
         }
     }
 }
