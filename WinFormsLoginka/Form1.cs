@@ -21,6 +21,14 @@ namespace WinFormsLoginka
 
         }
 
+        private void ShowPanel(Panel panel)
+        {
+            panel.Visible = true;
+            panel.BringToFront();
+        }
+
+        private void HidePanel(Panel panel) => panel.Visible = false;
+
         protected void ConnectToDataBase()
         {
             const string connectionUri = "mongodb+srv://maxymdb:maxymdb@datab.0sego7m.mongodb.net/?retryWrites=true&w=majority&appName=DataB";
@@ -101,12 +109,12 @@ namespace WinFormsLoginka
 
         private void SignUp_Click(object sender, EventArgs e)
         {
-            SignUpForm signUpForm = new SignUpForm();
+            ShowPanel(panel1);
+        }
 
-            signUpForm.Show();
-
-            this.Hide();
-            signUpForm.FormClosed += (s, args) => this.Close();
+        private void BackToLoginButton_Click(object sender, EventArgs e)
+        {
+            HidePanel(panel1);
         }
     }
 }
