@@ -2,6 +2,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Text.Json;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace WinFormsLoginka
 {
@@ -126,7 +127,7 @@ namespace WinFormsLoginka
             return user == null;
         }
 
-        private void CreateUsernameBox_TextChanged(object sender, EventArgs e)
+        private async void CreateUsernameBox_TextChanged(object sender, EventArgs e)
         {
             if (_ctoken != null)
             {
@@ -134,7 +135,17 @@ namespace WinFormsLoginka
                 _ctoken.Dispose();
             }
 
+            _ctoken = new System.Threading.CancellationTokenSource();
+            var token = _ctoken.Token;
 
-        }
+            try { await Task.Delay(150, token); }
+
+            catch (TaskCanceledException) { return; }
+
+            string username = CreateUsernameBox.Text;
+
+
+
+        }    
     }
 }
