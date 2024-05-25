@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -39,6 +40,7 @@
             LogIn = new Button();
             SignUp = new Button();
             panel1 = new Panel();
+            TermsCondConfirm = new CheckBox();
             CreateButton = new Button();
             PasswordConfBox = new TextBox();
             label7 = new Label();
@@ -50,6 +52,8 @@
             BackToLoginButton = new Button();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            AvailabilityLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
@@ -158,6 +162,8 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(AvailabilityLabel);
+            panel1.Controls.Add(TermsCondConfirm);
             panel1.Controls.Add(CreateButton);
             panel1.Controls.Add(PasswordConfBox);
             panel1.Controls.Add(label7);
@@ -174,6 +180,17 @@
             panel1.Size = new Size(799, 453);
             panel1.TabIndex = 9;
             panel1.Visible = false;
+            // 
+            // TermsCondConfirm
+            // 
+            TermsCondConfirm.AutoSize = true;
+            TermsCondConfirm.Font = new Font("Franklin Gothic Medium", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            TermsCondConfirm.Location = new Point(369, 294);
+            TermsCondConfirm.Name = "TermsCondConfirm";
+            TermsCondConfirm.Size = new Size(249, 25);
+            TermsCondConfirm.TabIndex = 10;
+            TermsCondConfirm.Text = "Confirm Terms and Сonditions";
+            TermsCondConfirm.UseVisualStyleBackColor = true;
             // 
             // CreateButton
             // 
@@ -231,6 +248,7 @@
             CreateUsernameBox.Name = "CreateUsernameBox";
             CreateUsernameBox.Size = new Size(277, 37);
             CreateUsernameBox.TabIndex = 17;
+            CreateUsernameBox.TextChanged += CreateUsernameBox_TextChanged;
             // 
             // label5
             // 
@@ -283,6 +301,21 @@
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // AvailabilityLabel
+            // 
+            AvailabilityLabel.AutoSize = true;
+            AvailabilityLabel.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            AvailabilityLabel.Location = new Point(652, 123);
+            AvailabilityLabel.Name = "AvailabilityLabel";
+            AvailabilityLabel.Size = new Size(0, 23);
+            AvailabilityLabel.TabIndex = 10;
+            // 
             // LoginWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -300,7 +333,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Name = "LoginWindow";
-            Text = "Form1";
+            Text = "Autorization Window";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
@@ -334,5 +367,8 @@
         private Label label7;
         private TextBox PasswordConfBox;
         private Button CreateButton;
+        private CheckBox TermsCondConfirm;
+        private ContextMenuStrip contextMenuStrip1;
+        private Label AvailabilityLabel;
     }
 }

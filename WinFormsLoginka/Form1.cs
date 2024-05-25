@@ -11,6 +11,8 @@ namespace WinFormsLoginka
         private readonly IMongoDatabase _database;
         private readonly IMongoCollection<BsonDocument> _collection;
 
+        private System.Threading.CancellationTokenSource? _ctoken;
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -115,6 +117,24 @@ namespace WinFormsLoginka
         private void BackToLoginButton_Click(object sender, EventArgs e)
         {
             HidePanel(panel1);
+        }
+
+        private async Task<bool> IsUsernameAvailableAsync(string username)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("username", username.ToLower());
+            var user = await _collection.Find(filter).FirstOrDefaultAsync();
+            return user == null;
+        }
+
+        private void CreateUsernameBox_TextChanged(object sender, EventArgs e)
+        {
+            if (_ctoken != null)
+            {
+                _ctoken.Cancel();
+                _ctoken.Dispose();
+            }
+
+
         }
     }
 }
