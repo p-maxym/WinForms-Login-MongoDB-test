@@ -13,6 +13,7 @@ namespace WinFormsLoginka
         private readonly IMongoCollection<BsonDocument> _collection;
 
         private System.Threading.CancellationTokenSource? _ctoken;
+        private bool isAvailable = false;
 
         public LoginWindow()
         {
@@ -152,7 +153,7 @@ namespace WinFormsLoginka
 
             AvailabilityLabel.Text = "Checking...";
 
-            bool isAvailable = await IsUsernameAvailableAsync(username);
+            isAvailable = await IsUsernameAvailableAsync(username);
 
             if (isAvailable)
             {
@@ -164,6 +165,22 @@ namespace WinFormsLoginka
                 AvailabilityLabel.Text = "Taken";
                 AvailabilityLabel.ForeColor = Color.Red;
             }
-        }    
+        }
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            string username = CreateUsernameBox.Text;
+            string createdPassword = PasswordCreateBox.Text;
+            string confirmedPassword = PasswordConfirmBox.Text;
+            string finalPassword;
+
+            if (createdPassword != "" && confirmedPassword != ""
+                && createdPassword == confirmedPassword && isAvailable)
+            {
+                finalPassword = confirmedPassword;
+                MessageBox.Show("Account Created!");
+            }
+
+        }
     }
 }

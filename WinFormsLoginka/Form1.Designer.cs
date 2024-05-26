@@ -42,7 +42,7 @@
             AvailabilityLabel = new Label();
             TermsCondConfirm = new CheckBox();
             CreateButton = new Button();
-            PasswordConfBox = new TextBox();
+            PasswordConfirmBox = new TextBox();
             label7 = new Label();
             PasswordCreateBox = new TextBox();
             label6 = new Label();
@@ -163,7 +163,7 @@
             panel1.Controls.Add(AvailabilityLabel);
             panel1.Controls.Add(TermsCondConfirm);
             panel1.Controls.Add(CreateButton);
-            panel1.Controls.Add(PasswordConfBox);
+            panel1.Controls.Add(PasswordConfirmBox);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(PasswordCreateBox);
             panel1.Controls.Add(label6);
@@ -208,15 +208,16 @@
             CreateButton.TabIndex = 22;
             CreateButton.Text = "Create";
             CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.Click += CreateButton_Click;
             // 
-            // PasswordConfBox
+            // PasswordConfirmBox
             // 
-            PasswordConfBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            PasswordConfBox.Location = new Point(369, 251);
-            PasswordConfBox.Multiline = true;
-            PasswordConfBox.Name = "PasswordConfBox";
-            PasswordConfBox.Size = new Size(277, 37);
-            PasswordConfBox.TabIndex = 21;
+            PasswordConfirmBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            PasswordConfirmBox.Location = new Point(369, 251);
+            PasswordConfirmBox.Multiline = true;
+            PasswordConfirmBox.Name = "PasswordConfirmBox";
+            PasswordConfirmBox.Size = new Size(277, 37);
+            PasswordConfirmBox.TabIndex = 21;
             // 
             // label7
             // 
@@ -357,7 +358,7 @@
         private Label label6;
         private TextBox PasswordCreateBox;
         private Label label7;
-        private TextBox PasswordConfBox;
+        private TextBox PasswordConfirmBox;
         private Button CreateButton;
         private CheckBox TermsCondConfirm;
         private Label AvailabilityLabel;
