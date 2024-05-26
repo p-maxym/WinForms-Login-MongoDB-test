@@ -174,11 +174,22 @@ namespace WinFormsLoginka
             string confirmedPassword = PasswordConfirmBox.Text;
             string finalPassword;
 
-            if (createdPassword != "" && confirmedPassword != ""
-                && createdPassword == confirmedPassword && isAvailable)
+            if (isAvailable)
             {
-                finalPassword = confirmedPassword;
-                MessageBox.Show("Account Created!");
+                if (createdPassword != "" && confirmedPassword != ""
+                && createdPassword == confirmedPassword)
+                {
+                    finalPassword = confirmedPassword;
+                    MessageBox.Show("Account Created!");
+                }
+                else
+                {
+                    MessageBox.Show("Password fields cannot be empty.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nickname is already taken.");
             }
 
         }
