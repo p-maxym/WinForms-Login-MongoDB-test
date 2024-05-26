@@ -138,14 +138,32 @@ namespace WinFormsLoginka
             _ctoken = new System.Threading.CancellationTokenSource();
             var token = _ctoken.Token;
 
-            try { await Task.Delay(150, token); }
+            try { await Task.Delay(300, token); }
 
             catch (TaskCanceledException) { return; }
 
             string username = CreateUsernameBox.Text;
 
+            if (string.IsNullOrEmpty(username))
+            {
+                AvailabilityLabel.Text = String.Empty;
+                return;
+            }
 
+            AvailabilityLabel.Text = "Checking...";
 
+            bool isAvailable = await IsUsernameAvailableAsync(username);
+
+            if (isAvailable)
+            {
+                AvailabilityLabel.Text = "Available";
+                AvailabilityLabel.ForeColor = Color.Green;
+            }
+            else
+            {
+                AvailabilityLabel.Text = "Taken";
+                AvailabilityLabel.ForeColor = Color.Red;
+            }
         }    
     }
 }

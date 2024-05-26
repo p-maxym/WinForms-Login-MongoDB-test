@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -40,6 +39,7 @@
             LogIn = new Button();
             SignUp = new Button();
             panel1 = new Panel();
+            AvailabilityLabel = new Label();
             TermsCondConfirm = new CheckBox();
             CreateButton = new Button();
             PasswordConfBox = new TextBox();
@@ -52,8 +52,6 @@
             BackToLoginButton = new Button();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            AvailabilityLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
@@ -181,6 +179,15 @@
             panel1.TabIndex = 9;
             panel1.Visible = false;
             // 
+            // AvailabilityLabel
+            // 
+            AvailabilityLabel.AutoSize = true;
+            AvailabilityLabel.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            AvailabilityLabel.Location = new Point(652, 123);
+            AvailabilityLabel.Name = "AvailabilityLabel";
+            AvailabilityLabel.Size = new Size(0, 23);
+            AvailabilityLabel.TabIndex = 10;
+            // 
             // TermsCondConfirm
             // 
             TermsCondConfirm.AutoSize = true;
@@ -301,21 +308,6 @@
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // AvailabilityLabel
-            // 
-            AvailabilityLabel.AutoSize = true;
-            AvailabilityLabel.Font = new Font("Segoe UI Black", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            AvailabilityLabel.Location = new Point(652, 123);
-            AvailabilityLabel.Name = "AvailabilityLabel";
-            AvailabilityLabel.Size = new Size(0, 23);
-            AvailabilityLabel.TabIndex = 10;
-            // 
             // LoginWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -368,7 +360,6 @@
         private TextBox PasswordConfBox;
         private Button CreateButton;
         private CheckBox TermsCondConfirm;
-        private ContextMenuStrip contextMenuStrip1;
         private Label AvailabilityLabel;
     }
 }
