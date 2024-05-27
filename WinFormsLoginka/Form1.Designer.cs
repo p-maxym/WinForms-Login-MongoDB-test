@@ -39,6 +39,7 @@
             LogIn = new Button();
             SignUp = new Button();
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
             AvailabilityLabel = new Label();
             TermsCondConfirm = new CheckBox();
             CreateButton = new Button();
@@ -50,7 +51,6 @@
             label5 = new Label();
             AccCreateLabel = new Label();
             BackToLoginButton = new Button();
-            pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -62,7 +62,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.InactiveCaptionText;
-            pictureBox1.Location = new Point(-2, -8);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(258, 461);
             pictureBox1.TabIndex = 0;
@@ -98,7 +98,7 @@
             LoginBox.Location = new Point(407, 157);
             LoginBox.Multiline = true;
             LoginBox.Name = "LoginBox";
-            LoginBox.Size = new Size(239, 34);
+            LoginBox.Size = new Size(198, 34);
             LoginBox.TabIndex = 3;
             LoginBox.TextChanged += LoginBox_TextChanged;
             // 
@@ -121,7 +121,7 @@
             PasswordBox.Multiline = true;
             PasswordBox.Name = "PasswordBox";
             PasswordBox.PasswordChar = '●';
-            PasswordBox.Size = new Size(239, 34);
+            PasswordBox.Size = new Size(198, 34);
             PasswordBox.TabIndex = 5;
             // 
             // label3
@@ -160,6 +160,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(AvailabilityLabel);
             panel1.Controls.Add(TermsCondConfirm);
             panel1.Controls.Add(CreateButton);
@@ -171,13 +172,23 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(AccCreateLabel);
             panel1.Controls.Add(BackToLoginButton);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(pictureBox3);
-            panel1.Location = new Point(0, 0);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(-2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(799, 453);
+            panel1.Size = new Size(761, 453);
             panel1.TabIndex = 9;
             panel1.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox4.Location = new Point(0, 37);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(258, 239);
+            pictureBox4.TabIndex = 11;
+            pictureBox4.TabStop = false;
             // 
             // AvailabilityLabel
             // 
@@ -281,24 +292,13 @@
             // BackToLoginButton
             // 
             BackToLoginButton.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            BackToLoginButton.Location = new Point(54, 343);
+            BackToLoginButton.Location = new Point(55, 345);
             BackToLoginButton.Name = "BackToLoginButton";
             BackToLoginButton.Size = new Size(149, 55);
             BackToLoginButton.TabIndex = 14;
             BackToLoginButton.Text = "Back to Log In";
             BackToLoginButton.UseVisualStyleBackColor = true;
             BackToLoginButton.Click += BackToLoginButton_Click;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = SystemColors.ActiveCaptionText;
-            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox4.Location = new Point(-2, 37);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(258, 239);
-            pictureBox4.TabIndex = 11;
-            pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -314,7 +314,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DeepSkyBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(759, 450);
             Controls.Add(panel1);
             Controls.Add(SignUp);
             Controls.Add(LogIn);
@@ -324,7 +324,8 @@
             Controls.Add(LoginBox);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox3);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "LoginWindow";
             Text = "Autorization Window";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -350,7 +351,6 @@
         private Button SignUp;
         private Panel panel1;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
         private Button BackToLoginButton;
         private Label AccCreateLabel;
         private Label label5;
@@ -362,5 +362,6 @@
         private Button CreateButton;
         private CheckBox TermsCondConfirm;
         private Label AvailabilityLabel;
+        private PictureBox pictureBox4;
     }
 }

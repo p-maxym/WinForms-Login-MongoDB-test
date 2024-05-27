@@ -22,7 +22,6 @@ namespace WinFormsLoginka
             _database = _client.GetDatabase("DataB");
             _collection = _database.GetCollection<BsonDocument>("WinFormLoginUsers");
 
-
         }
 
         private void ShowPanel(Panel panel)
@@ -76,7 +75,7 @@ namespace WinFormsLoginka
 
         }
 
-        private void LogIn_Click(object sender, EventArgs e)
+        private async void LogIn_Click(object sender, EventArgs e)
         {
             string username = LoginBox.Text;
             string password = PasswordBox.Text;
@@ -87,21 +86,24 @@ namespace WinFormsLoginka
                 return;
             }
 
-            var usernameFilter = Builders<BsonDocument>.Filter.Eq("username", username);
-
-            var usernameFind = _collection.Find(usernameFilter).FirstOrDefault();
-            string? passwordFind = usernameFind.GetValue("password").ToString();
-
             try
             {
+                var usernameFilter = Builders<BsonDocument>.Filter.Eq("username", username);
 
-                if (passwordFind != null && passwordFind == password)
+                var usernameFind = await _collection.Find(usernameFilter).FirstOrDefaultAsync();
+
+                if (usernameFind != null)
                 {
-                    MessageBox.Show($"Login successfull.\nWelcome {username}");
-                }
-                else
-                {
-                    MessageBox.Show("Login or password is not correct.");
+                    string storedHashedPassword = usernameFind["password"].AsString;
+
+                    if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
+                    {
+                        MessageBox.Show($"Login successfull.\nWelcome {username}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login or password is not correct.");
+                    }
                 }
             }
             catch (Exception ex)
@@ -167,31 +169,59 @@ namespace WinFormsLoginka
             }
         }
 
-        private void CreateButton_Click(object sender, EventArgs e)
+        private async void CreateButton_Click(object sender, EventArgs e)
         {
             string username = CreateUsernameBox.Text;
             string createdPassword = PasswordCreateBox.Text;
             string confirmedPassword = PasswordConfirmBox.Text;
-            string finalPassword;
 
-            if (isAvailable)
+            if (string.IsNullOrEmpty(username))
             {
-                if (createdPassword != "" && confirmedPassword != ""
-                && createdPassword == confirmedPassword)
-                {
-                    finalPassword = confirmedPassword;
-                    MessageBox.Show("Account Created!");
-                }
-                else
-                {
-                    MessageBox.Show("Password fields cannot be empty.");
-                }
+                MessageBox.Show("Username cannot be empty.");
+                return;
             }
-            else
+
+            if (createdPassword != confirmedPassword)
+            {
+                MessageBox.Show("Passwords do not match.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(createdPassword) || string.IsNullOrEmpty(confirmedPassword))
+            {
+                MessageBox.Show("Password fields cannot be empty.");
+                return;
+            }
+
+            if (!TermsCondConfirm.Checked)
+            {
+                MessageBox.Show("You must accept the Terms and Conditions.");
+                return;
+            }
+
+            isAvailable = await IsUsernameAvailableAsync(username);
+
+            if (!isAvailable)
             {
                 MessageBox.Show("Nickname is already taken.");
+                return;
             }
 
+            try
+            {
+                var document = new BsonDocument
+                {
+                    {"username", username},
+                    {"password", BCrypt.Net.BCrypt.HashPassword(confirmedPassword)}
+                };
+                await _collection.InsertOneAsync(document);
+                MessageBox.Show("Account created successfully\nTry to log in.");
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }
