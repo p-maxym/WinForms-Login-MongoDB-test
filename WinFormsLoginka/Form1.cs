@@ -223,5 +223,42 @@ namespace WinFormsLoginka
                 Debug.WriteLine(ex);
             }
         }
+
+        private void TogglePasswordVisibility(bool showPassword, string boxName)
+        {
+            switch (boxName)
+            {
+                case "createPassword":
+                    showPassPic1.Visible = !showPassword;
+                    hidePassPic1.Visible = showPassword;
+                    PasswordCreateBox.PasswordChar = showPassword ? '\0' : '•';
+                    break;
+                case "confirmPassword":
+                    showPassPic2.Visible = !showPassword;
+                    hidePassPic2.Visible = showPassword;
+                    PasswordConfirmBox.PasswordChar = showPassword ? '\0' : '•';
+                    break;
+            }
+        }
+
+        private void hidePassPic1_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(false, "createPassword");
+        }
+
+        private void showPassPic1_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(true, "createPassword");
+        }
+
+        private void hidePassPic2_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(false, "confirmPassword");
+        }
+
+        private void showPassPic2_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(true, "confirmPassword");
+        }
     }
 }

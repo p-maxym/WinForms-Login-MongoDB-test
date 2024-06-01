@@ -39,6 +39,10 @@
             LogIn = new Button();
             SignUp = new Button();
             panel1 = new Panel();
+            showPassPic1 = new PictureBox();
+            showPassPic2 = new PictureBox();
+            hidePassPic2 = new PictureBox();
+            hidePassPic1 = new PictureBox();
             pictureBox4 = new PictureBox();
             AvailabilityLabel = new Label();
             TermsCondConfirm = new CheckBox();
@@ -55,6 +59,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)showPassPic1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)showPassPic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassPic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassPic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -160,6 +168,10 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(showPassPic1);
+            panel1.Controls.Add(showPassPic2);
+            panel1.Controls.Add(hidePassPic2);
+            panel1.Controls.Add(hidePassPic1);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(AvailabilityLabel);
             panel1.Controls.Add(TermsCondConfirm);
@@ -178,6 +190,53 @@
             panel1.Size = new Size(761, 453);
             panel1.TabIndex = 9;
             panel1.Visible = false;
+            // 
+            // showPassPic1
+            // 
+            showPassPic1.BackgroundImage = (Image)resources.GetObject("showPassPic1.BackgroundImage");
+            showPassPic1.BackgroundImageLayout = ImageLayout.Stretch;
+            showPassPic1.Location = new Point(652, 188);
+            showPassPic1.Name = "showPassPic1";
+            showPassPic1.Size = new Size(31, 28);
+            showPassPic1.TabIndex = 0;
+            showPassPic1.TabStop = false;
+            showPassPic1.Click += showPassPic1_Click;
+            // 
+            // showPassPic2
+            // 
+            showPassPic2.BackgroundImage = (Image)resources.GetObject("showPassPic2.BackgroundImage");
+            showPassPic2.BackgroundImageLayout = ImageLayout.Stretch;
+            showPassPic2.Location = new Point(652, 255);
+            showPassPic2.Name = "showPassPic2";
+            showPassPic2.Size = new Size(31, 28);
+            showPassPic2.TabIndex = 1;
+            showPassPic2.TabStop = false;
+            showPassPic2.Click += showPassPic2_Click;
+            // 
+            // hidePassPic2
+            // 
+            hidePassPic2.BackgroundImage = (Image)resources.GetObject("hidePassPic2.BackgroundImage");
+            hidePassPic2.BackgroundImageLayout = ImageLayout.Stretch;
+            hidePassPic2.Image = (Image)resources.GetObject("hidePassPic2.Image");
+            hidePassPic2.Location = new Point(652, 255);
+            hidePassPic2.Name = "hidePassPic2";
+            hidePassPic2.Size = new Size(31, 28);
+            hidePassPic2.TabIndex = 23;
+            hidePassPic2.TabStop = false;
+            hidePassPic2.Click += hidePassPic2_Click;
+            // 
+            // hidePassPic1
+            // 
+            hidePassPic1.BackgroundImage = (Image)resources.GetObject("hidePassPic1.BackgroundImage");
+            hidePassPic1.BackgroundImageLayout = ImageLayout.Stretch;
+            hidePassPic1.Image = (Image)resources.GetObject("hidePassPic1.Image");
+            hidePassPic1.Location = new Point(652, 188);
+            hidePassPic1.Name = "hidePassPic1";
+            hidePassPic1.Size = new Size(31, 28);
+            hidePassPic1.TabIndex = 11;
+            hidePassPic1.TabStop = false;
+            hidePassPic1.Visible = false;
+            hidePassPic1.Click += hidePassPic1_Click;
             // 
             // pictureBox4
             // 
@@ -227,6 +286,7 @@
             PasswordConfirmBox.Location = new Point(369, 251);
             PasswordConfirmBox.Multiline = true;
             PasswordConfirmBox.Name = "PasswordConfirmBox";
+            PasswordConfirmBox.PasswordChar = '•';
             PasswordConfirmBox.Size = new Size(277, 37);
             PasswordConfirmBox.TabIndex = 21;
             // 
@@ -246,6 +306,7 @@
             PasswordCreateBox.Location = new Point(369, 184);
             PasswordCreateBox.Multiline = true;
             PasswordCreateBox.Name = "PasswordCreateBox";
+            PasswordCreateBox.PasswordChar = '•';
             PasswordCreateBox.Size = new Size(277, 37);
             PasswordCreateBox.TabIndex = 19;
             // 
@@ -332,6 +393,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)showPassPic1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)showPassPic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassPic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassPic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
@@ -363,5 +428,9 @@
         private CheckBox TermsCondConfirm;
         private Label AvailabilityLabel;
         private PictureBox pictureBox4;
+        private PictureBox hidePassPic1;
+        private PictureBox hidePassPic2;
+        private PictureBox showPassPic1;
+        private PictureBox showPassPic2;
     }
 }
