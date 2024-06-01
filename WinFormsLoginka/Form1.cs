@@ -113,13 +113,25 @@ namespace WinFormsLoginka
             }
         }
 
+        private void ClearAllFields()
+        {
+            LoginBox.Text = string.Empty;
+            PasswordBox.Text = string.Empty;
+
+            CreateUsernameBox.Text = string.Empty;
+            PasswordCreateBox.Text = string.Empty;
+            PasswordConfirmBox.Text = string.Empty;
+        }
+
         private void SignUp_Click(object sender, EventArgs e)
         {
+            ClearAllFields();
             ShowPanel(panel1);
         }
 
         private void BackToLoginButton_Click(object sender, EventArgs e)
         {
+            ClearAllFields();
             HidePanel(panel1);
         }
 
