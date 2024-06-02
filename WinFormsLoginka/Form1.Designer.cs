@@ -39,6 +39,7 @@
             LogIn = new Button();
             SignUp = new Button();
             panel1 = new Panel();
+            BackToLoginButton = new Button();
             showPassPic1 = new PictureBox();
             showPassPic2 = new PictureBox();
             hidePassPic2 = new PictureBox();
@@ -50,12 +51,13 @@
             PasswordConfirmBox = new TextBox();
             label7 = new Label();
             PasswordCreateBox = new TextBox();
+            pictureBox3 = new PictureBox();
             label6 = new Label();
             CreateUsernameBox = new TextBox();
             label5 = new Label();
             AccCreateLabel = new Label();
-            BackToLoginButton = new Button();
-            pictureBox3 = new PictureBox();
+            showPassLogIn = new PictureBox();
+            hidePassLogIn = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
@@ -65,12 +67,14 @@
             ((System.ComponentModel.ISupportInitialize)hidePassPic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)showPassLogIn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassLogIn).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.InactiveCaptionText;
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(-2, -8);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(258, 461);
             pictureBox1.TabIndex = 0;
@@ -103,10 +107,10 @@
             LoginBox.BackColor = Color.White;
             LoginBox.BorderStyle = BorderStyle.FixedSingle;
             LoginBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LoginBox.Location = new Point(407, 157);
+            LoginBox.Location = new Point(363, 157);
             LoginBox.Multiline = true;
             LoginBox.Name = "LoginBox";
-            LoginBox.Size = new Size(198, 34);
+            LoginBox.Size = new Size(242, 34);
             LoginBox.TabIndex = 3;
             LoginBox.TextChanged += LoginBox_TextChanged;
             // 
@@ -114,7 +118,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Franklin Gothic Medium", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(407, 215);
+            label2.Location = new Point(363, 215);
             label2.Name = "label2";
             label2.Size = new Size(93, 24);
             label2.TabIndex = 4;
@@ -125,18 +129,18 @@
             PasswordBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PasswordBox.BorderStyle = BorderStyle.FixedSingle;
             PasswordBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            PasswordBox.Location = new Point(407, 242);
+            PasswordBox.Location = new Point(363, 242);
             PasswordBox.Multiline = true;
             PasswordBox.Name = "PasswordBox";
             PasswordBox.PasswordChar = '●';
-            PasswordBox.Size = new Size(198, 34);
+            PasswordBox.Size = new Size(242, 34);
             PasswordBox.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Franklin Gothic Medium", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(407, 130);
+            label3.Location = new Point(363, 130);
             label3.Name = "label3";
             label3.Size = new Size(98, 24);
             label3.TabIndex = 6;
@@ -168,6 +172,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(BackToLoginButton);
             panel1.Controls.Add(showPassPic1);
             panel1.Controls.Add(showPassPic2);
             panel1.Controls.Add(hidePassPic2);
@@ -179,17 +184,27 @@
             panel1.Controls.Add(PasswordConfirmBox);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(PasswordCreateBox);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(CreateUsernameBox);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(AccCreateLabel);
-            panel1.Controls.Add(BackToLoginButton);
-            panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-2, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(761, 453);
             panel1.TabIndex = 9;
             panel1.Visible = false;
+            // 
+            // BackToLoginButton
+            // 
+            BackToLoginButton.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            BackToLoginButton.Location = new Point(55, 345);
+            BackToLoginButton.Name = "BackToLoginButton";
+            BackToLoginButton.Size = new Size(149, 55);
+            BackToLoginButton.TabIndex = 14;
+            BackToLoginButton.Text = "Back to Log In";
+            BackToLoginButton.UseVisualStyleBackColor = true;
+            BackToLoginButton.Click += BackToLoginButton_Click;
             // 
             // showPassPic1
             // 
@@ -286,7 +301,7 @@
             PasswordConfirmBox.Location = new Point(369, 251);
             PasswordConfirmBox.Multiline = true;
             PasswordConfirmBox.Name = "PasswordConfirmBox";
-            PasswordConfirmBox.PasswordChar = '•';
+            PasswordConfirmBox.PasswordChar = '●';
             PasswordConfirmBox.Size = new Size(277, 37);
             PasswordConfirmBox.TabIndex = 21;
             // 
@@ -306,9 +321,18 @@
             PasswordCreateBox.Location = new Point(369, 184);
             PasswordCreateBox.Multiline = true;
             PasswordCreateBox.Name = "PasswordCreateBox";
-            PasswordCreateBox.PasswordChar = '•';
+            PasswordCreateBox.PasswordChar = '●';
             PasswordCreateBox.Size = new Size(277, 37);
             PasswordCreateBox.TabIndex = 19;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Black;
+            pictureBox3.Location = new Point(0, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(258, 461);
+            pictureBox3.TabIndex = 10;
+            pictureBox3.TabStop = false;
             // 
             // label6
             // 
@@ -350,25 +374,27 @@
             AccCreateLabel.TabIndex = 15;
             AccCreateLabel.Text = "Create an account";
             // 
-            // BackToLoginButton
+            // showPassLogIn
             // 
-            BackToLoginButton.Font = new Font("Impact", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            BackToLoginButton.Location = new Point(55, 345);
-            BackToLoginButton.Name = "BackToLoginButton";
-            BackToLoginButton.Size = new Size(149, 55);
-            BackToLoginButton.TabIndex = 14;
-            BackToLoginButton.Text = "Back to Log In";
-            BackToLoginButton.UseVisualStyleBackColor = true;
-            BackToLoginButton.Click += BackToLoginButton_Click;
+            showPassLogIn.BackgroundImage = (Image)resources.GetObject("showPassLogIn.BackgroundImage");
+            showPassLogIn.BackgroundImageLayout = ImageLayout.Stretch;
+            showPassLogIn.Location = new Point(611, 245);
+            showPassLogIn.Name = "showPassLogIn";
+            showPassLogIn.Size = new Size(31, 29);
+            showPassLogIn.TabIndex = 11;
+            showPassLogIn.TabStop = false;
+            showPassLogIn.Click += showPassLogIn_Click;
             // 
-            // pictureBox3
+            // hidePassLogIn
             // 
-            pictureBox3.BackColor = Color.Black;
-            pictureBox3.Location = new Point(-2, -8);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(258, 461);
-            pictureBox3.TabIndex = 10;
-            pictureBox3.TabStop = false;
+            hidePassLogIn.BackgroundImage = (Image)resources.GetObject("hidePassLogIn.BackgroundImage");
+            hidePassLogIn.BackgroundImageLayout = ImageLayout.Stretch;
+            hidePassLogIn.Location = new Point(611, 245);
+            hidePassLogIn.Name = "hidePassLogIn";
+            hidePassLogIn.Size = new Size(31, 29);
+            hidePassLogIn.TabIndex = 12;
+            hidePassLogIn.TabStop = false;
+            hidePassLogIn.Click += hidePassLogIn_Click;
             // 
             // LoginWindow
             // 
@@ -385,7 +411,9 @@
             Controls.Add(LoginBox);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox1);
+            Controls.Add(showPassLogIn);
+            Controls.Add(hidePassLogIn);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "LoginWindow";
             Text = "Autorization Window";
@@ -399,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)hidePassPic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)showPassLogIn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)hidePassLogIn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -432,5 +462,7 @@
         private PictureBox hidePassPic2;
         private PictureBox showPassPic1;
         private PictureBox showPassPic2;
+        private PictureBox showPassLogIn;
+        private PictureBox hidePassLogIn;
     }
 }

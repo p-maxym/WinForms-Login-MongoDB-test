@@ -1,4 +1,4 @@
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Text.Json;
 using System.Diagnostics;
@@ -121,6 +121,8 @@ namespace WinFormsLoginka
             CreateUsernameBox.Text = string.Empty;
             PasswordCreateBox.Text = string.Empty;
             PasswordConfirmBox.Text = string.Empty;
+
+            TermsCondConfirm.Checked = false;
         }
 
         private void SignUp_Click(object sender, EventArgs e)
@@ -243,12 +245,17 @@ namespace WinFormsLoginka
                 case "createPassword":
                     showPassPic1.Visible = !showPassword;
                     hidePassPic1.Visible = showPassword;
-                    PasswordCreateBox.PasswordChar = showPassword ? '\0' : '�';
+                    PasswordCreateBox.PasswordChar = showPassword ? '\0' : '●';
                     break;
                 case "confirmPassword":
                     showPassPic2.Visible = !showPassword;
                     hidePassPic2.Visible = showPassword;
-                    PasswordConfirmBox.PasswordChar = showPassword ? '\0' : '�';
+                    PasswordConfirmBox.PasswordChar = showPassword ? '\0' : '●';
+                    break;
+                case "LogInPassword":
+                    showPassLogIn.Visible = !showPassword;
+                    hidePassLogIn.Visible = showPassword;
+                    PasswordBox.PasswordChar = showPassword ? '\0' : '●';
                     break;
             }
         }
@@ -271,6 +278,16 @@ namespace WinFormsLoginka
         private void showPassPic2_Click(object sender, EventArgs e)
         {
             TogglePasswordVisibility(true, "confirmPassword");
+        }
+
+        private void hidePassLogIn_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(false, "LogInPassword");
+        }
+
+        private void showPassLogIn_Click(object sender, EventArgs e)
+        {
+            TogglePasswordVisibility(true, "LogInPassword");
         }
     }
 }
