@@ -113,6 +113,7 @@
             LoginBox.Size = new Size(242, 34);
             LoginBox.TabIndex = 3;
             LoginBox.TextChanged += LoginBox_TextChanged;
+            LoginBox.MaxLength = 15;
             // 
             // label2
             // 
@@ -135,6 +136,7 @@
             PasswordBox.PasswordChar = '●';
             PasswordBox.Size = new Size(242, 34);
             PasswordBox.TabIndex = 5;
+            PasswordBox.MaxLength = 15;
             // 
             // label3
             // 
@@ -299,10 +301,10 @@
             // 
             PasswordConfirmBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordConfirmBox.Location = new Point(369, 251);
-            PasswordConfirmBox.Multiline = true;
+            PasswordConfirmBox.MaxLength = 15;
             PasswordConfirmBox.Name = "PasswordConfirmBox";
             PasswordConfirmBox.PasswordChar = '●';
-            PasswordConfirmBox.Size = new Size(277, 37);
+            PasswordConfirmBox.Size = new Size(277, 36);
             PasswordConfirmBox.TabIndex = 21;
             // 
             // label7
@@ -319,10 +321,10 @@
             // 
             PasswordCreateBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             PasswordCreateBox.Location = new Point(369, 184);
-            PasswordCreateBox.Multiline = true;
+            PasswordCreateBox.MaxLength = 15;
             PasswordCreateBox.Name = "PasswordCreateBox";
             PasswordCreateBox.PasswordChar = '●';
-            PasswordCreateBox.Size = new Size(277, 37);
+            PasswordCreateBox.Size = new Size(277, 36);
             PasswordCreateBox.TabIndex = 19;
             // 
             // pictureBox3
@@ -348,9 +350,9 @@
             // 
             CreateUsernameBox.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             CreateUsernameBox.Location = new Point(369, 114);
-            CreateUsernameBox.Multiline = true;
+            CreateUsernameBox.MaxLength = 15;
             CreateUsernameBox.Name = "CreateUsernameBox";
-            CreateUsernameBox.Size = new Size(277, 37);
+            CreateUsernameBox.Size = new Size(277, 36);
             CreateUsernameBox.TabIndex = 17;
             CreateUsernameBox.TextChanged += CreateUsernameBox_TextChanged;
             // 
